@@ -1,33 +1,59 @@
 # PHASE 2
 def convert_to_int(str)
-  Integer(str)
+    Integer(str)
+  rescue ArgumentError 
+    "nil"
 end
+
+
+# p convert_to_int("1430")
+# p convert_to_int("Hi")
 
 # PHASE 3
 FRUITS = ["apple", "banana", "orange"]
-
+class CoffeeError < StandardError; end
+class OtherFruitError < StandardError; end
 def reaction(maybe_fruit)
-  if FRUITS.include? maybe_fruit
-    puts "OMG, thanks so much for the #{maybe_fruit}!"
-  else 
-    raise StandardError 
-  end 
+  
+    if FRUITS.include? maybe_fruit
+      puts "OMG, thanks so much for the #{maybe_fruit}!"
+    elsif maybe_fruit == "coffee" 
+      raise CoffeeError 
+    else
+      raise OtherFruitError
+    end 
 end
 
 def feed_me_a_fruit
   puts "Hello, I am a friendly monster. :)"
-
-  puts "Feed me a fruit! (Enter the name of a fruit:)"
-  maybe_fruit = gets.chomp
-  reaction(maybe_fruit) 
+  begin
+    puts "Feed me a fruit! (Enter the name of a fruit:)"
+    maybe_fruit = gets.chomp
+    reaction(maybe_fruit) 
+  rescue CoffeeError
+    puts "no more coffee"
+    retry
+  rescue OtherFruitError
+    puts "other fruits plz"
+  end
 end  
+
+  # feed_me_a_fruit
 
 # PHASE 4
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
+    raise "I have not known you less than 5 years" if yrs_known < 5
+    raise "Enter name" if name.empty?
+    raise "Enter fav past time" if fav_pastime.empty?
+
     @name = name
     @yrs_known = yrs_known
     @fav_pastime = fav_pastime
+
+    
+
+    
   end
 
   def talk_about_friendship
