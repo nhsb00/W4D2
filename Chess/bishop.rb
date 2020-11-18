@@ -1,7 +1,7 @@
 class Bishop < Piece
 
     def symbol
-
+        @symbol = :BI
     end
 
     private

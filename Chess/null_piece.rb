@@ -2,16 +2,12 @@ require "singleton"
 class NullPiece < Piece
 
     include Singleton
-    attr_reader :val
-    def initialize(val = "NULL")
-        @val = val
+    attr_reader :symbol
+    def initialize
+        @symbol = :NN
     end 
 
     def moves 
-
-    end
-
-    def symbol
 
     end
 

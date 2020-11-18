@@ -2,7 +2,7 @@ class King < Piece
 
     def symbol
 
-
+        @symbol = :KG
     end
 
     protected

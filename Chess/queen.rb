@@ -1,7 +1,7 @@
 class Queen < Piece
 
     def symbol
-
+        @symbol = :QN
     end
 
     private

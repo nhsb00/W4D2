@@ -1,7 +1,7 @@
 class Rook < Piece
 
     def symbol
-
+        @symbol = :RO
     end
 
     private

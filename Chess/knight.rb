@@ -2,7 +2,7 @@ class Knight < Piece
 
     def symbol
 
-
+        @symbol = :KN
     end
 
     protected
