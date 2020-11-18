@@ -1,5 +1,7 @@
-class Rook < Piece
+require_relative "slideable"
 
+class Rook < Piece
+include Slideable
     def symbol
         @symbol = :RO
     end
@@ -7,7 +9,7 @@ class Rook < Piece
     private
     
     def move_dirs
-
+        horizontal_dirs
     end
 
 
